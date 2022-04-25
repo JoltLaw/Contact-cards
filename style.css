@@ -1,0 +1,94 @@
+
+body {
+    margin: 0;
+    background-color: rgb(247, 247, 247);
+}
+
+.modal {
+    z-index: 5;
+    position:absolute;
+    background-color: rgba(0, 0, 0, .5);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    width: 22vw;
+    align-items: center;
+    border-radius: 8px;
+    position: fixed;
+    z-index: 6;
+    margin-left: 40vw;
+    margin-top: 30vh;
+}
+
+.form input {
+    width: 20vw;
+}
+
+.form button {
+    border: 1px solid black;
+    margin-top: 5px;
+}
+
+
+#pgName {
+    margin: 0;
+    margin-left: 43vw;
+    user-select: none;
+}
+
+.dev {
+    width: 60vw;
+    height: 1px;
+    outline: none;
+    background-color: #222;
+    border: none;
+}
+
+.action {
+    display: inline;
+    margin-left: 47vw;
+}
+
+.action:hover {
+text-decoration: underline;
+cursor: pointer;
+}
+
+.cardHolder {
+    display: flex;
+    flex-direction: column;
+    width: 42vw;
+    /* background-color: #333;  */
+    height: 400px;
+    overflow-x: auto;
+    margin-left: 30vw;
+}
+
+.card {
+    margin-top: 5vh;
+    border: 1px solid #222;
+    border-radius: 4px;
+    width: 40vw;
+    background-color: whitesmoke;
+}
+
+.remove {
+    cursor: pointer;
+}
+
+.remove:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
