@@ -26,18 +26,38 @@ modal.addEventListener("click", () => {
 })
 }
 
-function removeCard (card, index, people) {
+function removeCard (card, index) {
     cardHolder.removeChild(card);
     peopleAR.splice(index, 1);
     localStorage.setItem("people", JSON.stringify(peopleAR));
 }
 
-function cardELBuilder (name, phone, email, company, person) {
-// peopleAR.push(person);
+function editCard (nameEL, phoneEl, emailEl, companyEl, index, card, person) {
+    nameEL.contentEditable = true;
+    phoneEl.contentEditable = true;
+    emailEl.contentEditable = true;
+    companyEl.contentEditable = true;
+    let doneBtn = document.createElement("button");
+    doneBtn.textContent = "Done";
+    card.appendChild(doneBtn);
+    doneBtn.addEventListener("click", () => {
+        person.name = nameEL.textContent;
+        person.phone = phoneEl.textContent;
+        person.email = emailEl.textContent;
+        person.company = companyEl.textContent;
+        nameEL.contentEditable = false;
+        phoneEl.contentEditable = false;
+        emailEl.contentEditable = false;
+        companyEl.contentEditable = false;
+        card.removeChild(doneBtn);
+        peopleAR.splice(index, 1, person);
+        localStorage.setItem("people",JSON.stringify(peopleAR));
+    }) 
+}
 
+function cardELBuilder (name, phone, email, company, person) {
 let peopleUnparsed =  localStorage.getItem(("people"));
 let people = JSON.parse(peopleUnparsed);
-// let index = people.indexOf(person);
 let card = document.createElement("div");
 card.classList.add("card");
 let nameEL = document.createElement("h1");
@@ -50,24 +70,19 @@ emailEl.textContent = email;
 let companyEl = document.createElement("h3");
 companyEl.textContent = company;
 let RemoveEl = document.createElement("p");
+let editEl = document.createElement("p");
+editEl.textContent = "Edit";
 peopleAR.push(person);
-
-// if (localStorage.getItem("people") !== null) {
-//     RemoveEl.addEventListener("click", () => {removeCard(card, people.indexOf(person), people)});
-//     RemoveEl.textContent = "Remove"; 
-//     RemoveEl.classList.add("remove");
-//     peopleAR.push(person);
-// }
-
-    RemoveEl.addEventListener("click", () => {removeCard(card, peopleAR.indexOf(person), people)});
-    RemoveEl.textContent = "Remove"; 
-    RemoveEl.classList.add("remove");
-    localStorage.setItem("people",JSON.stringify(peopleAR));
-
+RemoveEl.addEventListener("click", () => {removeCard(card, peopleAR.indexOf(person))});
+editEl.addEventListener("click", () => {editCard(nameEL, phoneEl, emailEl, companyEl, peopleAR.indexOf(person), card, person)});
+RemoveEl.textContent = "Remove"; 
+RemoveEl.classList.add("remove");
+editEl.classList.add("editBTN");
+localStorage.setItem("people",JSON.stringify(peopleAR));
 card.append(nameEL, hr, phoneEl, emailEl, companyEl,);
+card.appendChild(editEl);
 card.appendChild(RemoveEl);
 cardHolder.appendChild(card);
-
 }
 
 function onload() {

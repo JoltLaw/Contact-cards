@@ -1,7 +1,7 @@
 
 body {
     margin: 0;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(228, 228, 229);
 }
 
 .modal {
@@ -55,6 +55,7 @@ body {
 .action {
     display: inline;
     margin-left: 47vw;
+    user-select: none;
 }
 
 .action:hover {
@@ -92,3 +93,32 @@ cursor: pointer;
 .hidden {
     display: none;
 }
+.editBTN {
+    cursor: pointer;
+    z-index: 3;
+    
+}
+.editBTN:hover {
+    text-decoration: underline;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(228, 228, 229);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+      border-radius: 32px;
+    background: rgb(57, 57, 57);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(78, 78, 78);
+  }
