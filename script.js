@@ -47,7 +47,7 @@ function editCard (nameEL, phoneEl, emailEl, companyEl, index, card, person) {
         person.company = companyEl.textContent;
         nameEL.contentEditable = false;
         phoneEl.contentEditable = false;
-        emailEl.contentEditable = false;
+        emailEl.contentEditable = false; 
         companyEl.contentEditable = false;
         card.removeChild(doneBtn);
         peopleAR.splice(index, 1, person);
