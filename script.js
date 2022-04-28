@@ -1,4 +1,5 @@
 
+const body = document.getElementById("body");
 const modal = document.getElementById("modal");
 const nameInput = document.getElementById("nameInput");
 const phoneInput = document.getElementById("phoneInput");
@@ -6,6 +7,9 @@ const emailInput = document.getElementById("emailInput");
 const companyInput = document.getElementById("companyInput");
 const cardHolder = document.getElementById("cardHolder");
 const card_Form = document.getElementById("card_Form");
+const bgColorScale = document.getElementById("bgColorInput");
+const txtColorScale = document.getElementById("txtColor");
+const settingsMenu = document.getElementById("settingsMenu");
 
 const person = function(name, phone, email, company) {
     this.name = name;
@@ -16,6 +20,8 @@ const person = function(name, phone, email, company) {
 
 const peopleAR = [];
 
+var colorScheme = [];
+
 function newCard() {
 modal.classList.remove("hidden");
 card_Form.classList.remove("hidden");
@@ -25,6 +31,36 @@ modal.addEventListener("click", () => {
      card_Form.classList.add("hidden");
  }
 })
+}
+
+function HBM() {
+    if (localStorage.getItem("colorScheme")){
+    let CSUC = localStorage.getItem("colorScheme")
+    let CSC = JSON.parse(CSUC);
+    bgColorScale.value = CSC[0];
+    txtColorScale.value = CSC[1];
+    }
+    modal.classList.remove("hidden");
+    settingsMenu.classList.remove("hidden")
+    modal.addEventListener("click", () => {
+    if (Event.target = modal) {
+        modal.classList.add("hidden");
+        settingsMenu.classList.add("hidden");
+    }})
+}
+
+function manualColorChange() {
+    colorSchemeLR = localStorage.getItem("colorScheme");
+    colorSchemeLR = []
+    colorScheme = []
+    let BGcolor = bgColorScale.value;
+    let txtColor = txtColorScale.value
+    colorScheme.push(BGcolor);
+    colorScheme.push(txtColor);
+    body.style.backgroundColor = colorScheme[0];
+    body.style.color = colorScheme[1];
+    localStorage.setItem("colorScheme", JSON.stringify(colorScheme));
+    // console.log(bgColorScale)
 }
 
 function removeCard (card, index) {
@@ -87,6 +123,11 @@ cardHolder.appendChild(card);
 }
 
 function onload() {
+    if (localStorage.getItem("colorScheme")) {
+    let ColorScheme = localStorage.getItem("colorScheme");
+    let CCS = JSON.parse(ColorScheme);
+    body.style.backgroundColor = CCS[0];
+    body.style.color = CCS[1];}
     let peopleUnparsed =  localStorage.getItem(("people"));
     let people = JSON.parse(peopleUnparsed);
     people.forEach((person) => {
@@ -112,3 +153,5 @@ modal.classList.add("hidden");
 card_Form.classList.add("hidden");
 cardELBuilder(name, phone, email, company, personOBJ);
 }
+onload();
+

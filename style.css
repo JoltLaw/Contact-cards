@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 body {
     margin: 0;
@@ -43,6 +43,36 @@ body {
     margin: 0;
     margin-left: 43vw;
     user-select: none;
+}
+
+.hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 100%;
+    width: 3%;
+    height: 6vh;
+    margin-left: 94%;
+    margin-top: 2vh;
+    position: fixed;
+}
+
+.settings {
+    z-index: 6;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    margin-left: 40vw;
+    margin-top: 30vh;
+    position: fixed;
+}
+
+.settings h2 {
+    margin-left: 25%;
+}
+
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, .1);;
 }
 
 .dev {
@@ -91,9 +121,6 @@ cursor: pointer;
     color: red;
 }
 
-.hidden {
-    display: none;
-}
 .editBTN {
     cursor: pointer;
     z-index: 3;
@@ -123,3 +150,9 @@ cursor: pointer;
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(78, 78, 78);
   }
+
+
+  .hidden {
+    display: none;
+}
+
