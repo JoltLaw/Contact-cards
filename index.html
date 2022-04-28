@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
     <title>Contact Cards</title>
 </head>
 <body id="body">
+
     <div class="form hidden" id="card_Form">
         <label for="nameInput">Name:</label>
         <input type="text" name="" id="nameInput" autocomplete="off"> 
@@ -19,6 +21,7 @@
         <label for="companyInput">Company:</label>
         <input type="text" id="companyInput" autocomplete="off">
         <button onclick="Buildcard()">Add Card</button>
+
     </div>
     <div id="settingsMenu" class="settings hidden">
         <label for="bgColorInput">Background Color</label>
@@ -26,6 +29,7 @@
         <label for="txtColor">Text Color</label>
         <input id="txtColor" type="color" onchange="manualColorChange()">
         <hr>
+
     </div>
     <div class="modal hidden" id="modal"></div>
     <div class="hamburger" onclick="HBM()"><h1>≡</h1></div>
@@ -36,3 +40,4 @@
     </div>
     <script src="script.js"></script>
 </body>
+</html>

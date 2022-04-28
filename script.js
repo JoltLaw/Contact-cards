@@ -1,3 +1,4 @@
+
 const body = document.getElementById("body");
 const modal = document.getElementById("modal");
 const nameInput = document.getElementById("nameInput");
@@ -122,7 +123,6 @@ cardHolder.appendChild(card);
 }
 
 function onload() {
-
     if (localStorage.getItem("colorScheme")) {
     let ColorScheme = localStorage.getItem("colorScheme");
     let CCS = JSON.parse(ColorScheme);
@@ -154,3 +154,4 @@ card_Form.classList.add("hidden");
 cardELBuilder(name, phone, email, company, personOBJ);
 }
 onload();
+

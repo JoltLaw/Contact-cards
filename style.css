@@ -75,31 +75,6 @@ body {
     background-color: rgba(255, 255, 255, .1);;
 }
 
-.colorSchemeOptions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: 40vh;
-    overflow: auto;
-}
-
-.colorscheme {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 60%;
-height: 10vh;
-color: black;
-border-radius: 8px;
-cursor: pointer;
-}
-
-#WaterMelon {
-    /* background: #dd3e54;  fallback for old browsers */
-/* background: -webkit-linear-gradient(to right, #6be585, #dd3e54);  Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #6be585, #dd3e54); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
 .dev {
     width: 60vw;
     height: 1px;
@@ -176,6 +151,8 @@ cursor: pointer;
     background: rgb(78, 78, 78);
   }
 
+
   .hidden {
     display: none;
 }
+
